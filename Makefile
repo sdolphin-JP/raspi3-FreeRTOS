@@ -3,13 +3,13 @@ ASMFLAGS = -mcpu=cortex-a53
 LDFLAGS  = -T lscript.ld
 TARGET   = kernel8.elf kernel8.lst kernel8.bin
 LIBS     = -lc -lm
-ASMFILES = $(wildcard sources/*.S)
-CFILES   = $(wildcard sources/*.c)
+ASMFILES = $(wildcard Application/*.S)
+CFILES   = $(wildcard Application/*.c)
 OBJS     = $(ASMFILES:.S=.asm_o) $(CFILES:.c=.src_o)
 INCS     =
 
 .PHONY: default
-default: kernel8.img kernel8.lst
+default: kernel8.bin kernel8.lst
 
 .PHONY: all
 all: $(TARGET)
